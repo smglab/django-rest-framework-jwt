@@ -1,4 +1,4 @@
-from django.contrib.auth import get_user_model
+from .auth import jwt_get_user_model
 
 from rest_framework import serializers
 
@@ -21,7 +21,7 @@ class PasswordField(serializers.CharField):
 
 def get_username_field():
     try:
-        username_field = get_user_model().USERNAME_FIELD
+        username_field = jwt_get_user_model().USERNAME_FIELD
     except:
         username_field = 'username'
 
